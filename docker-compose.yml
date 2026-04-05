@@ -1,9 +1,27 @@
 services:
   cc-task-scheduler:
-    build: .
+    build:
+      context: .
+      args:
+        USERNAME: ${USER}
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+      secrets:
+        - claude_creds
     image: cc-task-scheduler
     stdin_open: true
     tty: true
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      - HOME=${HOME}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    working_dir: ${HOME}
     volumes:
-      - ${HOME}/.claude:/root/.claude
+      - ${HOME}/.claude:${HOME}/.claude
+      - ${HOME}/.claude.json:${HOME}/.claude.json
       - .:/app
+
+secrets:
+  claude_creds:
+    file: ${HOME}/.claude/.credentials.json
