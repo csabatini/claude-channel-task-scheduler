@@ -1,0 +1,9 @@
+services:
+  cc-task-scheduler:
+    build: .
+    image: cc-task-scheduler
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${HOME}/.claude:/root/.claude
+      - .:/app

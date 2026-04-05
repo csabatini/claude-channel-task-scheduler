@@ -9,7 +9,9 @@ The container runs an active Claude Code session with the Telegram channel plugi
 ## Usage
 
 ```
-docker - TODO
+docker compose build --no-cache
+docker compose up -d
+docker compose exec cc-task-scheduler sh
 ```
 
 ### Scheduling Tasks in the Claude Code Session
