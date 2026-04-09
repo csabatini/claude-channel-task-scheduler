@@ -8,9 +8,8 @@ The container runs an active Claude Code session with the Telegram channel plugi
 
 ## Prerequisites
 
-1. **Claude Code** authentication should be present on the container host (`~/.claude` and `~/.claude.json` must exist).
+1. **Claude Code** authentication should be present on the container host (`~/.claude` and `~/.claude.json` configs).
 2. **Telegram bot token** from [@BotFather](https://t.me/BotFather). Copy `.env.example` to `.env` and fill in `TELEGRAM_BOT_TOKEN`.
-3. **Docker** with Compose v2 and BuildKit (default on modern Docker).
 
 ## Usage
 
